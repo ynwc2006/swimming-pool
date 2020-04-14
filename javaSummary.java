@@ -11,7 +11,9 @@
         SolCompare sc = new SolCompare();
         MinPQ<SearchNode> pq = new MinPQ(sc);
         }
-//how to use comparator & priority queue to get the max from the PQ
+
+//how to use Comparator 2
+pq.poll(a); //get the min value
 PriorityQueue<Integer> pq = new PriorityQueue<Integer> (
   new Comparator<Integer> () {
     public int compare(Integer a, Integer b) {
@@ -19,3 +21,7 @@ PriorityQueue<Integer> pq = new PriorityQueue<Integer> (
     }
   }
 );
+PriorityQueue<Integer> pq2 = new PriorityQueue<>((a,b)->b-a) //how to use Comparator 3:lambda expression 
+pq2.poll(a); //get the max value
+
+
