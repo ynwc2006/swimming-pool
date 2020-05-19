@@ -1,0 +1,660 @@
+https://classroom.udacity.com/nanodegrees/nd213/
+
+Morden C++  above 11
+
+#include <vector>
+std::vector
+
+Fundamental reasons    to use Cpp
+1.handle well with hardware
+2. Handle complexity with abstract
+run
+g++ main.cpp && ./a.out
+g++ -std=c++17 ./code/filename.cpp 
+
+compares compiled and scripted languages
+
+Print
+#include <iostream>
+using std::cout;
+
+int main() {
+    cout << "Hello!" << "\n";   
+}
+
+    std::ostringstream stream;
+    stream << key << ": " << value;
+    return stream.str();
+
+char str1[]= "UDACITY";
+    printf("%s",str1);
+---------------
+Vector
+#include <vector>
+using std::vector;
+
+v.push_back(4);
+Myvector.empty( );
+open.back();
+open.pop_back();
+std::reverse(myvector.begin(),myvector.end()); 
+
+int main() {
+    // Three ways of declaring and initializing vectors.
+    vector<int> v_1{0, 1, 2};
+    vector<int> v_2 = {3, 4, 5};
+    vector<int> v_3;
+    v_3 = {6};
+
+int init[2]
+-----------
+#include <iostream>
+#include <vector>
+using std::vector;
+using std::cout;
+--------------
+int main() {
+    auto i = 5;
+    auto v_6 = {1, 2, 3};
+    cout << "Variables declared and initialized without explicitly stating type!" << "\n";
+}
+
+
+  CellSort(&open);
+    auto current = open.back();
+ * Sort the two-dimensional vector of ints in descending order.
+ */
+
+void CellSort(vector<vector<int>> *v) {
+  sort(v->begin(), v->end(), Compare);
+}
+
+bool Compare(const vector<int> a, const vector<int> b) {
+  int f1 = a[2] + a[3]; // f1 = g1 + h1
+  int f2 = b[2] + b[3]; // f2 = g2 + h2
+  return f1 > f2; 
+}
+
+
+Array
+n array is a C++ container much like a vector, although without the ability to change size after initialization
+const int delta[4][2]{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
+
+Map
+#include <unordered_map>
+using std::unordered_map;
+ unordered_map <string, vector<string>> my_dictionary;
+    // Check if key is in the hash table. (In this case, not)
+    if (my_dictionary.find(key) == my_dictionary.end()) {
+        cout << "The key 'word' is not in the dictionary." << "\n";
+        cout << "Inserting a key-value pair into the dictionary." << "\n\n";
+        // Set the value for the key.
+        my_dictionary[key] = vector<string> {def_1, def_2, def_3, def_4};
+    }
+   auto definitions = my_dictionary[key];
+
+Boolean
+bool a = false;
+
+File Input
+#include <fstream>
+std::ifstream my_file;
+my_file.open(path);
+//Or  std::ifstream my_file(path);
+if (my_file) {
+        std::cout << "The file stream has been created!" << "\n";
+        std::string line;
+        while (getline(my_file, line)) {
+            std::cout << line << "\n";
+        }
+    }
+#include <iostream>
+#include <sstream>
+#include <string>
+
+using std::istringstream;
+using std::string;
+using std::cout;
+
+int main() 
+{
+    string a("1 2 3");
+
+    istringstream my_stream(a);
+
+    int n;
+    
+    // Testing to see if the stream was successful and printing results.
+    while (my_stream) {
+        my_stream >> n;
+        if (my_stream) {
+            cout << "That stream was successful: " << n << "\n";
+        }
+        else {
+            cout << "That stream was NOT successful!" << "\n";            
+        }
+    }
+}
+
+    while (my_stream >> n) {
+      cout << "That stream was successful: " << n << "\n";
+    }
+    cout << "The stream has failed." << "\n";
+
+    while (my_stream >> n >> c) {
+      cout << "That stream was successful:" << n << " " << c << "\n";
+    }
+    cout << "The stream has failed." << "\n”;
+
+ enum class Color {white, black, blue, red};
+Color my_color = Color::blue;
+
+ switch (a) {
+      case Direction::kUp : cout << "Going up!" << "\n";
+        break;
+      case Direction::kDown : cout << "Going down!" << "\n";
+        break;
+      case Direction::kLeft : cout << "Going left!" << "\n";
+        break;
+      case Direction::kRight : cout << "Going right!" << "\n";
+        break;
+    }
+
+  switch(cell) {
+    case State::kObstacle: return "⛰️   ";
+    default: return "0   "; 
+  }
+
+Math
+abs(x2 - x1)
+
+Class
+
+//car.h
+#ifndef CAR_H
+#define CAR_H
+
+#include <string>
+using std::string;
+using std::cout;
+
+class Car {
+  public:
+    void PrintCarData();
+    void IncrementDistance();
+    
+    // Using a constructor list in the constructor:
+    Car(string c, int n) : color(c), number(n) {}
+  
+  // The variables do not need to be accessed outside of
+  // functions from this class, so we can set them to private.
+  private:
+    string color;
+    int distance = 0;
+    int number;
+};
+#endif
+
+//car.cpp
+#include <iostream>
+#include "car.h"
+
+// Method definitions for the Car class.
+void Car::PrintCarData() 
+{
+    cout << "The distance that the " << color << " car " << number << " has traveled is: " << distance << "\n";
+}
+
+void Car::IncrementDistance() 
+{
+    distance++;      // this->distance++;
+}
+//car_main.cpp
+#include <iostream>
+#include <string>
+#include "car.h"
+using std::string;
+using std::cout;
+
+int main() 
+{
+    // Create class instances for each car.
+    Car car_1 = Car("green", 1);
+    Car car_2 = Car("red", 2);
+    Car car_3 = Car("blue", 3);
+
+    // Increment car_1's position by 1.
+    car_1.IncrementDistance();
+
+    // Print out the position and color of each car.
+    car_1.PrintCarData();
+    car_2.PrintCarData();
+    car_3.PrintCarData();
+
+}
+
+Struct //act as a simplified class.By convention, programmers use structures when member variables are independent of each other, and use classes when member variables are related by an "invariant”.
+ By default, all members of a struct default to public, whereas all members of a class default to private.
+//accessor and mutatot function
+
+struct Rectangle {
+  float length;
+  float width;
+};
+struct Date {
+private: //by default, all is public
+  int day{1};
+  int month{1};
+  int year{0};
+};
+A protected member variable or function is very similar to a private member but it provided one additional benefit that they can be accessed in child classes which are called derived classes.
+
+#include <cassert>
+#include <stdexcept>
+  void Validate() {
+    if (length_ <= 0 || width_ <= 0 || height_ <= 0)
+      throw std::invalid_argument("negative dimension");
+  }
+  bool caught{false};
+  try {
+    Pyramid invalid(-1, 2, 3);
+  } catch (...) {
+    caught = true;
+  }
+  assert(caught);
+
+Inheritance 
+class Sedan : public Car {
+    // Sedan class declarations/definitions here.
+};
+
+Scope resolution
+Person::move()//This becomes particularly useful if we want to separate class declaration from class definition.
+Name space
+namespace Spanish {
+void Hello() { std::cout << "Hola, Mundo!\n"; }
+}
+
+Initializer list
+Initializer lists exist for a number of reasons. :
+1.complie faster
+2.only way to initialize const class attribute
+3. Attributes defined as reference can only be initialized by initializer list
+
+Encapsulation
+Encapsulation is the grouping together of data and logic into a single unit. In object-oriented programming, classes encapsulate data and functions that operate on that data.
+
+Accessor function (getter function)
+The main role of the const specifier in accessor methods is to protect member data. When you specify a member function as const, the compiler will prohibit that function from changing any of the object's member data.
+Mutator function(setter function)
+A mutator ("setter") function can apply logic ("invariants") when updating member data.
+
+Const
+// Implementation of Get methods:
+long int BankAccount::getNumber() const {
+    // Getting specified attribute
+    return BankAccount::number;
+}
+
+Abstract
+Abstraction refers to the separation of a class's interface from the details of its implementation. The interface provides a way to interact with an object, while hiding the details and implementation of how the class works.
+
+Inheritance
+-public inheritance.       class Car :public Vehicle {}
+-private inheritance
+-protected inferitance
+
+Composition
+Composition is a closely related alternative to inheritance. Composition involves constructing ("composing") classes from other classes, instead of inheriting traits from a parent class. This is often expressed as "has a" versus "is a”. (For java You can only extend one class in your child class, but you can implement as many interfaces as you would like.)
+class Car{
+public:
+Car() :wheels(4, Wheel( )){ }
+Std:: vector<Wheel> wheels;
+}
+
+Friend class
+The main difference between classical inheritance and friend inheritance is that a friend class can access private members of the base class, which isn't the case for classical inheritance. In classical inheritance, a derived class can only access public and protected members of the base class.
+Class Hear{
+Private:
+Int rate(80);
+Friend class Human;
+}
+
+Polymorphism
+describes a paradigm in which a function may behave differently depending on how it is called. In particular, the function will perform differently based on its inputs.Polymorphism can be achieved in two ways in C++: overloading and overriding. In this exercise we will focus on overloading.
+
+
+Overloading
+In C++, you can write two (or more) versions of a function with the same name. This is called "overloading". Overloading requires that we leave the function name the same, but we modify the function signature. For example, we might define the same function name with multiple different configurations of input arguments.
+
+Operator overloading
+Int& operator()(int row, int col).  { Return values_[row*columes_+col];}
+Int   operator()(int row, int col) const { return values_[row*columes+col];}
+Matrix operator+(const Matrix& m){}
+
+Virtual functions 
+are a polymorphic feature. These functions are declared (and possibly defined) in a base class, and can be overridden by derived classes.
+class Shape {
+    public:
+        Shape() {}
+        virtual double Area() const = 0;
+        virtual double Perimeter() const = 0;
+};
+
+class Rectangle : public Shape {
+public:
+  Rectangle(double width, double height) : width_(width), height_(height) {}
+  double Area() const override { return width_ * height_; }
+  double Perimeter() const override { return 2 * (width_ + height_); }
+private:
+  double width_;
+  double height_;
+};
+Append = 0 to each of these functions in order to declare them to be "pure" virtual functions.
+A pure virtual function is a virtual function that the base class declares but does not define.
+A pure virtual function has the side effect of making its class abstract. This means that the class cannot be instantiated. Instead, only classes that derive from the abstract class and override the pure virtual function can be instantiated.
+
+Overriding
+"Overriding" a function occurs when:
+1. A base class declares a virtual function.
+2. A derived class overrides that virtual function by defining its own implementation with an identical function signature (i.e. the same function name and argument types).
+function hiding
+A derived class hides a base class function, as opposed to overriding it, if the base class function is not specified to be virtual.    
+double Area() const override { return pow(radius_, 2) * PI; } 
+
+Multiple inheritance
+* "Use multiple inheritance to represent multiple distinct interfaces"
+* "Use multiple inheritance to represent the union of implementation attributes"
+
+Template
+Templates enable generic programming by generalizing a function to apply to any class. Specifically, templates use types as parameters so that the same implementation can operate on different data types.
+template <typename Type> 
+Type Sum(Type a, Type b) { return a + b; }
+
+int main() { std::cout << Sum<double>(20.0, 13.7) << "\n"; }
+
+template <typename KeyType,typename ValueType>
+
+Template Deduction （not exist in old version C++)
+Deduction occurs when you instantiate an object without explicitly identifying the types. Instead, the compiler "deduces" the types. This can be helpful for writing code that is generic and can handle a variety of inputs.
+
+
+
+Reference
+ int b = MultiplyByTwo(a);
+int MultiplyByTwo(int &i){}// a has been passed by reference
+
+ int i = 1;
+int& j = I; // Declare a reference to i.
+void CellSort(vector<vector<int>> *v) {
+  sort(v->begin(), v->end(), Compare);
+}
+
+//The symbols & and * have a different meaning, depending on which side of an equation they appear.
+int &j=a  ;reference
+Int a; &a address
+
+
+Pointer
+A C++ pointer is just a variable that stores the memory address of an object in your program.
+int i = 5;
+int* pointer_to_i = &I;
+
+cp is a pointer to a Car object,
+cp->IncrementDistance(); equal to (*cp).IncrementDistance();
+
+dereferencing operator: *pointer_to_i  // I
+
+
+References are generally easier and safer than pointers. As a decent rule of thumb, references should be used in place of pointers when possible.However, there are times when it is not possible to use references. One example is object initialization.The reference could only be initialized once the other object is created.
+
+const: meaning roughly " I promise not to change this value.”
+ const int j = i * 2;  // "j can only be evaluated at run time.”
+constexpr int k = 3;  // "k, in contrast, can be evaluated at compile time.”
+Static 
+Class members can be declared static, which means that the member belongs to the entire class, instead of to a specific instance of the class.
+static members are declared within their class (often in a header file) but in most cases they must be defined within the global scope. That's because memory is allocated for static variables immediately when the program begins, at the same time any global variables are initialized.
+Ex:#include <cassert>
+
+class Foo {
+ public:
+  static int count;
+  Foo() { Foo::count += 1; }
+};
+
+int Foo::count{0};
+
+int main() {
+  Foo f{};
+  assert(Foo::count == 1);
+}
+An exception to the global definition of static members is if such members can be marked as constexpr. In that case, the static member variable can be both declared and defined within the class definition:
+struct Kilometer {
+  static constexpr int meters{1000};
+};
+  
+static float constexpr pi_{3.14159};
+float const pi_{3.14159};
+static float const pi_; //then declare it globally
+
+Static function: //can use the function without initializing the object
+   static float Volume(int radius) {
+       return pi_ * 4/3 * pow(radius,3);
+   }
+
+A function declaration 
+#ifndef HEADER_EXAMPLE_H
+#define HEADER_EXAMPLE_H
+
+void OuterFunction(int);
+void InnerFunction(int);
+
+#endif
+
+g++ -std=c++17 ./code/main.cpp ./code/increment_and_sum.cpp ./code/vect_add_one.cpp
+When you compile a project with g++, g++ actually performs several distinct tasks:
+1. The preprocessor runs and executes any statement beginning with a hash symbol: #, such as #include statements. This ensures all code is in the correct location and ready to compile. （g++ -c  *.cpp）
+2. Each file in the source code is compiled into an "object file" (a .o file). Object files are platform-specific machine code that will be used to create an executable. （g++  *.o）
+3. The object files are "linked" together to make a single executable. In the examples you have seen so far, this executable is a.out, but you can specify whatever name you want. （./a.out）
+
+CMakeLists.txt
+
+ CMake uses text documents, denoted as CMakeLists.txt files, to manage build environments, like make.
+cmake_minimum_required(VERSION 3.5.1)  //set the minimum cmake version required to 3.5.1
+set(CMAKE_CXX_STANDARD 14) //set the environment variable CMAKE_CXX_STANDARD
+project(<my_project>)
+add_executable(you_executable  src/main.cpp src/vect_add_one.cpp src/increment_and_sum.cpp)
+root@abc123defg:/home/workspace/cmake_example# mkdir 
+buildroot@abc123defg:/home/workspace/cmake_example# cd build
+root@abc123defg:/home/workspace/cmake_example/build# cmake .. //The first line directs the cmake command at the top-level CMakeLists.txt file with ... This command uses the CMakeLists.txt to configure the project and create a Makefile in the build directory.
+root@abc123defg:/home/workspace/cmake_example/build# make In the second line, make finds the Makefile and uses the instructions in the Makefile to build the project.
+root@abc123defg:/home/workspace/cmake_example/build# ./your_executable_name //run your executable from the build folder:
+
+Using the Debugger to Analyze Memory
+ using gdb.
+
+
+* A memory page is a number of directly successive memory locations in virtual memory defined by the computer architecture and by the operating system. The computer memory is divided into memory pages of equal size. The use of memory pages enables the operating system to perform virtual memory management. The entire working memory is divided into tiles and each address in this computer architecture is interpreted by the Memory Management Unit (MMU) as a logical address and converted into a physical address.
+* A memory frame is mostly identical to the concept of a memory page with the key difference being its location in the physical main memory instead of the virtual memory.
+why use virtual memory
+1. Holes in address space : If several programs are started one after the other and then shortly afterwards some of these are terminated again, it must be ensured that the freed-up space in between the remaining programs does not remain unused. If memory becomes too fragmented, it might not be possible to allocate a large block of memory due to a large-enough free contiguous block not being available any more.
+2. Programs writing over each other : If several programs are allowed to access the same memory address, they will overwrite each others' data at this location. In some cases, this might even lead to one program reading sensitive information (e.g. bank account info) that was written by another program. This problem is of particular concern when writing concurrent programs which run several threads at the same time.
+3. 
+
+
+1. The stack is a contiguous memory block with a fixed maximum size. If a program exceeds this size, it will crash. The stack is used for storing automatically allocated variables such as local variables or function parameters. If there are multiple threads in a program, then each thread has its own stack memory. New memory on the stack is allocated when the path of execution enters a scope and freed again once the scope is left. It is important to know that the stack is managed "automatically" by the compiler, which means we do not have to concern ourselves with allocation and deallocation.
+2. The heap (also called "free store" in C++) is where data with dynamic storage lives. It is shared among multiple threads in a program, which means that memory management for the heap needs to take concurrency into account. This makes memory allocations in the heap more complicated than stack allocations. In general, managing memory on the heap is more (computationally) expensive for the operating system, which makes it slower than stack memory. Contrary to the stack, the heap is not managed automatically by the system, but by the programmer. If memory is allocated on the heap, it is the programmer’s responsibility to free it again when it is no longer needed. If the programmer manages the heap poorly or not at all, there will be trouble.
+3. The BSS (Block Started by Symbol) segment is used in many compilers and linkers for a segment that contains global and static variables that are initialized with zero values. This memory area is suitable, for example, for arrays that are not initialized with predefined values.
+4. The Data segment serves the same purpose as the BSS segment with the major difference being that variables in the Data segment have been initialized with a value other than zero. Memory for variables in the Data segment (and in BSS) is allocated once when a program is run and persists throughout its lifetime.
+In the following, a short list of key properties of the stack is listed:
+1. The stack is a contiguous block of memory. It will not become fragmented (as opposed to the heap) and it has a fixed maximum size.
+2. When the maximum size of the stack memory is exceeded, a program will crash.
+3. Allocating and deallocating memory is fast on the stack. It only involves moving the stack pointer to a new position.
+4. 
+
+passing by value
+Passing by pointer
+Passing by reference (A major disadvantage is that the caller does not always know what will happen to the data it passes to a function (especially when the function code can not be modified easily). Thus, in some cases, special steps must be taken to protect ones data from inappropriate modification.)
+An additional advantage of passing variables by reference is the possibility to modify several variables. When using the function return value for such a purpose, returning several variables is usually very cumbersome.)
+
+* Pointers can be declared without initialization. This means we can pass an uninitialized pointer to a function who then internally performs the initialization for us.
+* Pointers can be reassigned to another memory block on the heap.
+* References are usually easier to use (depending on the expertise level of the programmer). Sometimes however, if a third-party function is used without properly looking at the parameter definition, it might go unnoticed that a value has been modified.
+* 
+
+Let us take a look at some properties of heap memory:
+1. As opposed to local variables on the stack, memory can now be allocated in an arbitrary scope (e.g. inside a function) without it being deleted when the scope is left. Thus, as long as the address to an allocated block of memory is returned by a function, the caller can freely use it.
+2. Local variables on the stack are allocated at compile-time. Thus, the size of e.g. a string variable might not be appropriate as the length of the string will not be known until the program is executed and the user inputs it. With local variables, a solution would be to allocate a long-enough array of and hope that the actual length does not exceed the buffer size. With dynamically allocated heap memory, variables are allocated at run-time. This means that the size of the above-mentioned string variable can be tailored to the actual length of the user input.
+3. Heap memory is only constrained by the size of the address space and by the available memory. With modern 64 bit operating systems and large RAM memory and hard disks the programmer commands a vast amount of memory. However, if the programmer forgets to deallocate a block of heap memory, it will remain unused until the program is terminated. This is called a "memory leak".
+4. Unlike the stack, the heap is shared among multiple threads, which means that memory management for the heap needs to take concurrency into account as several threads might compete for the same memory resource.
+5. When memory is allocated or deallocated on the stack, the stack pointer is simply shifted upwards or downwards. Due to the sequential structure of stack memory management, stack memory can be managed (by the operating system) easily and securely. With heap memory, allocation and deallocation can occur arbitrarily, depending on the lifetime of the variables. This can result in fragmented memory over time, which is much more difficult and expensive to manage.
+A classic symptom of memory fragmentation is that you try to allocate a large block and you can’t, even though you appear to have enough memory free. On systems with virtual memory however, this is less of a problem, because large allocations only need to be contiguous in virtual address space, not in physical address space.
+When memory is heavily fragmented however, memory allocations will likely take longer because the memory allocator has to do more work to find a suitable space for the new object.
+To reserve memory on the heap, one of the two functions malloc (stands for Memory Allocation) or calloc (stands for Cleared Memory Allocation) is used. The header file stdlib.h or malloc.h must be included to use the functions.
+pointer_name = (cast-type*) malloc(size); 
+pointer_name = (cast-type*) calloc(num_elems, size_elem);
+malloc is used to dynamically allocate a single large block of memory with the specified size. It returns a pointer of type void which can be cast into a pointer of any form.
+calloc is used to dynamically allocate the specified number of blocks of memory of the specified type. It initializes each block with a default value '0'.
+Both functions return a pointer of type void which can be cast into a pointer of any form. If the space for the allocation is insufficient, a NULL pointer is returned.
+int *p = (int*)malloc(sizeof(int));
+At compile time, only the space for the pointer is reserved (on the stack). When the pointer is initialized, a block of memory of sizeof(int) bytes is allocated (on the heap) at program runtime. The pointer on the stack then points to this memory location on the heap.
+
+int *p = (int*)malloc(3*sizeof(int)); 
+p[0] = 1; p[1] = 2; p[2] = 3;
+ printf("address=%p, second value=%d\n", p, p[1]);
+
+struct MyStruct { int i; double d; char a[5]; }; MyStruct *p = (MyStruct*)calloc(4,sizeof(MyStruct)); p[0].i = 1; p[0].d = 3.14159; p[0].a[0] = 'a’;
+
+    int *p = (int*)malloc(2*sizeof(int));
+    p[0] = 1; p[1] = 2; 
+    // resize memory to hold four integers
+    p = (int*)realloc(p,4*sizeof(int));
+    p[2] = 3; p[3] = 4; 
+    // resize memory again to hold two integers
+    p = (int*)realloc(p,2*sizeof(int));
+    printf("address=%p, value=%d\n", p+0, *(p+0)); // valid
+    printf("address=%p, value=%d\n", p+1, *(p+1)); // valid
+    printf("address=%p, value=%d\n", p+2, *(p+2)); // INVALID
+    printf("address=%p, value=%d\n", p+3, *(p+3)); // INVALID
+ void *p = malloc(100); 
+Void *p2 =p;
+    free(p);
+P2 is a "dangling pointer".
+1.free can only free memory that was reserved with malloc or calloc.
+2.free can only release memory that has not been released before. Releasing the same block of memory twice will result in an error
+3.Memory allocated with malloc or calloc is not subject to the familiar rules of variables in their respective scopes. This means that they exist independently of block limits until they are released again or the program is terminated. However, the pointers which refer to such heap-allocated memory are created on the stack and thus only exist within a limited scope. As soon as the scope is left, the pointer variable will be lost - but not the heap memory it refers to.
+
+The functions malloc and free are library function and represent the default way of allocating and deallocating memory in C. In C++, they are also part of the standard and can be used to allocate blocks of memory on the heap.
+With the introduction of classes and object oriented programming in C++ however, memory allocation and deallocation has become more complex: When an object is created, its constructor needs to be called to allow for member initialization. Also, on object deletion, the destructor is called to free resources and to allow for programmer-defined clean-up tasks. For this reason, C++ introduces the operators new / delete, which represent the object-oriented counterpart to memory management with malloc / free.
+
+ the major differences between malloc/free and new/delete:
+1. Constructors / Destructors Unlike malloc( sizeof(MyClass) ), the call new MyClass() calls the constructor. Similarly, delete calls the destructor.
+2. Type safety malloc returns a void pointer, which needs to be cast into the appropriate data type it points to. This is not type safe, as you can freely vary the pointer type without any warnings or errors from the compiler as in the following small example: MyObject *p = (MyObject*)malloc(sizeof(int));
+In C++, the call MyObject *p = new MyObject() returns the correct type automatically - it is thus type-safe.
+3. Operator Overloading As malloc and free are functions defined in a library, their behavior can not be changed easily. The new and delete operators however can be overloaded by a class in order to include optional proprietary behavior. We will look at an example of overloading new further down in this section.
+
+
+void *memory = malloc(sizeof(MyClass)); MyClass *object = new (memory) MyClass;
+The syntax new (memory) is denoted as placement new.The difference to the "conventional" new we have been using so far is that that no memory is allocated. 
+object->~MyClass(); free(memory);
+One of the major advantages of new/delete over free/malloc is the possibility of overloading.
+    void *operator new(size_t size)
+    {
+        std::cout << "new: Allocating " << size << " bytes of memory" << std::endl;
+        void *p = malloc(size);
+
+        return p;
+    }
+
+void* operator new[](size_t size); 
+void operator delete[](void*);
+Reasons for overloading new and delete
+
+Now that we have seen how to overload the new and delete operators, let us summarize the major scenarios where it makes sense to do this:
+1. The overloaded new operator function allows to add additional parameters. Therefore, a class can have multiple overloaded new operator functions. This gives the programmer more flexibility in customizing the memory allocation for objects.
+2. Overloaded the new and delete operators provides an easy way to integrate a mechanism similar to garbage collection capabilities (such as in Java), as we will shorty see later in this course.
+3. By adding exception handling capabilities into new and delete, the code can be made more robust.
+4. It is very easy to add customized behavior, such as overwriting deallocated memory with zeros in order to increase the security of critical application data.
+5. 
+
+Overview of memory management problems
+
+One of the primary advantages of C++ is the flexibility and control of resources such as memory it gives to the programmer. This advantage is further amplified by a significant increase in the performance of C++ programs compared to other languages such as Python or Java.
+However, these advantages come at a price as they demand a high level of experience from the programer. As Bjarne Stroustrup put it so elegantly:
+"C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do it blows your whole leg off".
+In this chapter, we will look at a collection of typical errors in memory management that you need to watch out for.
+1. Memory Leaks Memory leaks occur when data is allocated on the heap at runtime, but not properly deallocated. A program that forgets to clear a memory block is said to have a memory leak - this may be a serious problem or not, depending on the circumstances and on the nature of the program. For a program that runs, computes something, and quits immediately, memory leaks are usually not a big concern. Memory leaks are mostly problematic for programs that run for a long time and/or use large data structures. In such a case, memory leaks can gradually fill the heap until allocation requests can no longer be properly met and the program stops responding or crashes completely. We will look at an example further down in this section.
+2. Buffer Overruns Buffer overruns occur when memory outside the allocated limits is overwritten and thus corrupted. One of the resulting problems is that this effect may not become immediately visible. When a problem finally does occur, cause and effect are often hard to discern. It is also sometimes possible to inject malicious code into programs in this way, but this shall not be discussed here.
+In this example, the allocated stack memory is too small to hold the entire string, which results in a segmentation fault:
+char str[5];
+strcpy(str,"BufferOverrun");
+printf("%s",str);
+3. Uninitialized Memory Depending on the C++ compiler, data structures are sometimes initialized (most often to zero) and sometimes not. So when allocating memory on the heap without proper initialization, it might sometimes contain garbage that can cause problems.
+Generally, a variable will be automatically initialized in these cases:
+* it is a class instance where the default constructor initializes all primitive types
+* array initializer syntax is used, such as int a[10] = {}
+* it is a global or extern variable
+* it is defined static
+The behavior of the following code is potentially undefined:
+int a;
+int b=a*42;
+printf("%d",b);
+4. Incorrect pairing of allocation and deallocation Freeing a block of memory more than once will cause a program to crash. This can happen when a block of memory is freed that has never been allocated or has been freed before. Such behavior could also occur when improper pairings of allocation and deallocation are used such as using malloc() with delete or new with free().
+In this first example, the wrong new and delete are paired
+double *pDbl=new double[5];
+delete pDbl;
+
+In this second example, the pairing is correct but a double deletion is performed:
+char *pChr=new char[5];
+delete[] pChr;
+delete[] pChr;
+
+5. Invalid memory access This error occurs then trying to access a block of heap memory that has not yet or has already been deallocated.
+In this example, the heap memory has already been deallocated at the time when strcpy() tries to access it:
+char *pStr=new char[25];
+delete[] pStr;
+strcpy(pStr, "Invalid Access");
+Debugging memory leaks with Valgrind
+
+
+Copying
+In C++, a common way of safely accessing resources is by wrapping a manager class around the handle, which is initialized when the resource is acquired (in the class constructor) and released when it is deleted (in the class destructor). This concept is often referred to as Resource Acquisition is Initialization (RAII),
+One problem with this approach though is that copying the manager object will also copy the handle of the resource. This allows two objects access to the same resource - and this can mean trouble.
+
+The default behavior of both copy constructor and assignment operator is to perform a shallow copy 
+
+
+copy-ownership policies.
+   
+1. Default copying
+2. No copying
+3. Exclusive ownership
+4. Deep copying
+5. Shared ownership
+
+
+
+To this end, the Rule of Three states that if a class needs to have an overloaded copy constructor, copy assignment operator, ~or~ destructor, then it must also implement the other two as well to ensure that memory is managed consistently
+
+What are lvalues and rvalues?
+
+
+* Lvalues have an address that can be accessed. They are expressions whose evaluation by the compiler determines the identity of objects or functions.
+* Prvalues do not have an address that is accessible directly. They are temporary expressions used to initialize objects or compute the value of the operand of an operator.
+* 
+For the sake of simplicity and for compliance with many tutorials, videos and books about the topic, let us refer to prvalues as rvalues from here on.
+int i = 42; // lvalue = rvalue;
+
+int *j = &I;
+In this small example, the expression &i generates the address of i as an rvalue and assigns it to j, which is an lvalue now holding the memory location of i.
+(Error in 2. Lvalue & Rvalue Using the address operator & we can generate an lvalue from an rvalue and assign it to another lvalue:
+
+
+
+Lvalue references
+
+An lvalue reference can be considered as an alternative name for an object
+
+
+
+
